@@ -1,6 +1,6 @@
 # 🌍 Earth Information Jukebox
 
-> **Hear the Changing Planet** — A hackathon MVP translating genuine NASA satellite precipitation measurements into sound using the browser-native Web Audio API.
+> **Hear the Changing Planet** — An interactive experience translating genuine NASA satellite precipitation measurements into sound using the browser-native Web Audio API.
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-deepakj--777.github.io%2FNASA__spaceapp-brightgreen?style=for-the-badge&logo=github)](https://deepakj-777.github.io/NASA_spaceapp/)
 
@@ -17,7 +17,7 @@
 
 The **Earth Information Jukebox** bridges planetary science and sensory perception. Instead of relying solely on visual maps or dense numeric tables, it sonifies real satellite observations so users can *listen* to the atmosphere's dynamics.
 
-This hackathon demonstration sonifies a 24-hour storm cycle (25 hourly readings) from **Hurricane Ida** as it moved over the Central New Jersey / NYC Metropolitan area ($40.54^\circ\text{N}, 74.65^\circ\text{W}$) on September 1–2, 2021.
+This demonstration sonifies a 24-hour storm cycle (25 hourly readings) from **Hurricane Ida** as it moved over the Central New Jersey / NYC Metropolitan area ($40.54^\circ\text{N}, 74.65^\circ\text{W}$) on September 1–2, 2021.
 
 ### Quick Concept
 * **Dry calm ($0.00\text{ mm/hr}$):** Low, mellow $200\text{ Hz}$ baseline tone.

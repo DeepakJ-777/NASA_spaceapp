@@ -14,10 +14,10 @@ function App() {
     <div className="app-shell">
       <Header />
       <main>
-        {/* 15-Second Hackathon Elevator Pitch & Guide */}
-        <section className="hackathon-hero-strip" aria-label="Quick Introduction">
+        {/* Quick Interactive Guide & Overview */}
+        <section className="hero-guide-strip" aria-label="Quick Introduction">
           <div className="hero-strip-content">
-            <span className="hero-pill">Hackathon MVP</span>
+            <span className="hero-pill">OVERVIEW</span>
             <p>
               <strong>Hear the planet rain:</strong> This jukebox translates genuine NASA satellite precipitation measurements into sound. Click <strong>Play</strong> below to listen to 24 hours of Hurricane Ida’s historic rainfall — lower notes signify dry calm, and rising pitches follow increasing storm intensity up to 10.22 mm/hr.
             </p>
@@ -44,7 +44,7 @@ function App() {
       </main>
 
       <footer>
-        <p>Earth Information Jukebox · Hackathon Demonstration Prototype</p>
+        <p>Earth Information Jukebox · Interactive Planetary Sonification</p>
         <p>NASA Global Precipitation Measurement (GPM) IMERG Dataset · GES DISC · Web Audio API</p>
       </footer>
     </div>
