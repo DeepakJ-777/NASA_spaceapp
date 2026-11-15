@@ -2,6 +2,10 @@
 
 > **Hear the Changing Planet** — A hackathon MVP translating genuine NASA satellite precipitation measurements into sound using the browser-native Web Audio API.
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-deepakj--777.github.io%2FNASA__spaceapp-brightgreen?style=for-the-badge&logo=github)](https://deepakj-777.github.io/NASA_spaceapp/)
+
+**🔗 Live Web App:** [https://deepakj-777.github.io/NASA_spaceapp/](https://deepakj-777.github.io/NASA_spaceapp/)
+
 [![Built with React](https://img.shields.io/badge/Frontend-React_19-61dafb.svg)](https://react.dev/)
 [![Bundled with Vite](https://img.shields.io/badge/Bundler-Vite_8-646cff.svg)](https://vitejs.dev/)
 [![NASA GPM IMERG](https://img.shields.io/badge/NASA_Data-GPM_IMERG_V07-0b3d91.svg)](https://gpm.nasa.gov/data)
