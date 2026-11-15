@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Earth Jukebox — Design decisions</title>
+  <style>
+    :root { color: #dbe9f5; background: #0b1420; font: 16px/1.6 "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    body { max-width: 980px; margin: 0 auto; padding: 48px 24px 80px; }
+    h1, h2, h3 { color: #f1f7fb; line-height: 1.15; }
+    h1 { max-width: 12ch; font-size: clamp(2.6rem, 8vw, 5rem); letter-spacing: -.04em; }
+    h2 { margin-top: 56px; padding-top: 24px; border-top: 1px solid #2b4154; }
+    p, li { max-width: 72ch; color: #a9bdcc; }
+    .tag { color: #65d6ed; font: 700 .75rem/1 monospace; letter-spacing: .1em; text-transform: uppercase; }
+    .verdict { margin: 28px 0; padding: 20px; border-left: 3px solid #65d6ed; background: #111e2b; color: #f1f7fb; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .swatch, .card { padding: 18px; border: 1px solid #2b4154; background: #101b27; }
+    .swatch span { display: block; height: 44px; margin-bottom: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th, td { padding: 12px; border-bottom: 1px solid #2b4154; text-align: left; vertical-align: top; }
+    th { color: #65d6ed; }
+    code { color: #89e5f5; }
+    a { color: #65d6ed; }
+  </style>
+</head>
+<body>
+  <p class="tag">Design record · Phase 2 · 15 November 2026</p>
+  <h1>A listening desk for the planet</h1>
+  <p class="verdict">The dashboard provides the Phase 2 structure. It is clear about what is a placeholder and what the next phase must add.</p>
+
+  <h2>Brief</h2>
+  <div class="grid">
+    <div class="card"><h3>Purpose</h3><p>For hackathon visitors who want to understand Earth rainfall through sight and sound. They arrive curious, before any live data is loaded.</p></div>
+    <div class="card"><h3>Character</h3><p>A quiet observation console beside a listening station, not a cinematic spacecraft control room.</p></div>
+    <div class="card"><h3>Feel</h3><p>Measured, credible, and inviting. The team should look careful with scientific source material.</p></div>
+    <div class="card"><h3>Richness</h3><p>One rich observation area and restrained supporting controls. The visualization is the reason to visit, so the rest stays quiet.</p></div>
+  </div>
+  <p><strong>Scope:</strong> one responsive dashboard screen in operate mode.</p>
+  <p><strong>Screens:</strong> 320 px to 1600 px, from the request for desktop and mobile support.</p>
+  <p><strong>First value:</strong> visitors can immediately see the planned Earth view, select the only honest dataset option, and understand the sound mapping.</p>
+  <p><strong>Signature moment:</strong> the observation window and the audio player directly below it.</p>
+  <p><strong>Ending:</strong> visitors finish with a short explanation of precipitation, sonification, and pitch.</p>
+  <p><strong>Constraints:</strong> no NASA API, no invented measurement, and no audio generation in this phase.</p>
+  <p><strong>Assumed, please correct:</strong> the first audience is a mixed hackathon crowd, not trained Earth scientists.</p>
+
+  <h2>Direction</h2>
+  <p><strong>Chosen: Quiet telemetry.</strong> Thin coordinates, a measured grid, square controls, and a cyan signal color suggest careful observation without pretending that the screen contains live mission data.</p>
+  <p>It beat <strong>cinematic orbit</strong>, which would add too much glow and spectacle, and <strong>data laboratory</strong>, which would make the first visit feel too technical.</p>
+  <p>The provisional identity uses a small orbital sound mark, narrow uppercase naming, deep navy, and one clear cyan signal color.</p>
+
+  <h2>Design language</h2>
+  <table>
+    <thead><tr><th>Part</th><th>Decision and reason</th></tr></thead>
+    <tbody>
+      <tr><td>Voice</td><td>Short and factual. Placeholder limits are stated where visitors need them.</td></tr>
+      <tr><td>Type</td><td>Narrow system display type for planetary scale; regular system text for easy reading without a font download.</td></tr>
+      <tr><td>Space</td><td>Wide around the observation area, compact inside controls. This separates exploration from operation.</td></tr>
+      <tr><td>Color</td><td>Deep navy surfaces with cyan for signal and selection. Green is reserved for readiness status.</td></tr>
+      <tr><td>Shape</td><td>Square panels and controls keep the screen close to scientific equipment. The Earth and brand mark earn the only circles.</td></tr>
+      <tr><td>Controls</td><td>Native select, range, and buttons keep keyboard behavior. A two-pixel cyan focus ring stays visible.</td></tr>
+      <tr><td>Mechanics</td><td>One unlayered <code>src/index.css</code> file owns all styles. No library or inline style system competes with it.</td></tr>
+      <tr><td>Motion</td><td>No decorative motion in Phase 2. Hover and focus feedback are immediate. Reduced motion is respected.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Color values</h2>
+  <div class="grid">
+    <div class="swatch"><span style="background:#0b1420"></span><strong>Night field</strong><br />Main background</div>
+    <div class="swatch"><span style="background:#111e2b"></span><strong>Instrument surface</strong><br />Panels and controls</div>
+    <div class="swatch"><span style="background:#65d6ed"></span><strong>Signal cyan</strong><br />Selection and focus</div>
+  </div>
+
+  <h2>Decision log</h2>
+  <table>
+    <thead><tr><th>Layer</th><th>Element</th><th>Decision</th><th>Because</th><th>Rejected default</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Structure</td><td>One long dashboard with four clear regions.</td><td>The MVP has one dataset and one audio path.</td><td>Sidebar navigation.</td></tr>
+      <tr><td>2</td><td>Direction</td><td>Quiet telemetry.</td><td>Scientific care matters more than space spectacle.</td><td>Glowing sci-fi dashboard.</td></tr>
+      <tr><td>3</td><td>Hierarchy</td><td>The observation area takes most of the first screen.</td><td>Seeing Earth rainfall will become the core task.</td><td>Equal card grid.</td></tr>
+      <tr><td>4</td><td>Surface</td><td>Most sections use borders, not floating cards.</td><td>The content should feel connected to one instrument.</td><td>Rounded shadow cards.</td></tr>
+      <tr><td>5</td><td>Truth</td><td>Preview and no-live-data labels stay visible.</td><td>Visitors must not mistake the placeholder for NASA measurements.</td><td>Demo numbers.</td></tr>
+      <tr><td>6</td><td>Waveform</td><td>A still, low-contrast rhythm supports the audio panel.</td><td>It shows the future form without implying playback.</td><td>Animated waveform.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>States and motion</h2>
+  <table>
+    <thead><tr><th>Change</th><th>Tier</th><th>Feedback</th><th>Reduced motion</th></tr></thead>
+    <tbody>
+      <tr><td>Dataset focus and selection</td><td>Micro</td><td>Focus ring and native selection update.</td><td>Same immediate state.</td></tr>
+      <tr><td>Play or pause press</td><td>None in Phase 2</td><td>Controls are disabled; nearby status states Phase 3.</td><td>No change.</td></tr>
+      <tr><td>Volume adjustment</td><td>Micro</td><td>Native range position updates.</td><td>Same immediate state.</td></tr>
+      <tr><td>Desktop to mobile</td><td>None</td><td>Panels stack and the Earth moves above its note.</td><td>No change.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Use over time</h2>
+  <p>The screen is the honest empty state for Phase 2. It does not need network loading, offline, error, or signed-out states because no service exists yet. Long text wraps, keyboard focus is visible, touch controls are at least 42 pixels high, and the layout stacks on narrow screens.</p>
+
+  <h2>For you to decide</h2>
+  <ul>
+    <li>Confirm whether higher pitch should always mean heavier rain before Phase 3 makes the mapping audible.</li>
+    <li>Confirm the primary audience before scientific terms become more detailed.</li>
+    <li>Keep or replace the provisional orbital sound mark when the project receives a final identity.</li>
+  </ul>
+</body>
+</html>
